@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Permissions;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -24,10 +18,10 @@ namespace ConsoleApp1
             // Create a new FileSystemWatcher and set its properties.
             using (FileSystemWatcher watcher = new FileSystemWatcher())
             {
-                watcher.Path = "c:\\csv\\";
+                watcher.Path = "c:\\csv\\import2\\";
                 //watcher.Path = args[1];];
 
-                watcher.IncludeSubdirectories = true;
+                watcher.IncludeSubdirectories = false;
                 // Watch for changes in LastAccess and LastWrite times, and
                 // the renaming of files or directories.
                 watcher.NotifyFilter = NotifyFilters.LastAccess
@@ -39,10 +33,10 @@ namespace ConsoleApp1
                 watcher.Filter = "*.csv";
 
                 // Add event handlers.
-                watcher.Changed += OnChanged;
+                //watcher.Changed += OnChanged;
                 watcher.Created += OnChanged;
-                watcher.Deleted += OnChanged;
-                watcher.Renamed += OnRenamed;
+                //watcher.Deleted += OnChanged;
+                //watcher.Renamed += OnRenamed;
 
                 // Begin watching.
                 watcher.EnableRaisingEvents = true;
@@ -65,16 +59,21 @@ namespace ConsoleApp1
                 string n = "";
                 //string FileName = "C:\\Log_20180319140301_20190706180348.csv";
                 string FileName = e.FullPath;
-                StreamReader sr = File.OpenText(FileName);
-                while ((old = sr.ReadLine()) != null)
+
+                using (StreamReader sr = File.OpenText(FileName))
                 {
-                    if (!old.Contains(search_text))
+                    while ((old = sr.ReadLine()) != null)
                     {
-                        n += old + Environment.NewLine;
+                        if (!old.Contains(search_text))
+                        {
+                            n += old + Environment.NewLine;
+                        }
                     }
                 }
-                sr.Close();
-                File.WriteAllText(FileName, n);
+
+                string filepath = Path.GetDirectoryName(FileName);
+
+                File.WriteAllText(filepath + "\\..\\import\\"+e.Name , n);
             }
             catch (Exception exc)
             {
@@ -90,26 +89,6 @@ namespace ConsoleApp1
             Console.WriteLine($"File: {e.OldFullPath} renamed to {e.FullPath}");
 
 
-        static void cutTxt()
-        {
-            string tempFile = Path.GetTempFileName();
-
-            using (var sr = new StreamReader("file.txt"))
-            using (var sw = new StreamWriter(tempFile))
-            {
-                int id = 1;
-                string line;
-
-                sw.WriteLine(sr.ReadLine());
-                while ((line = sr.ReadLine()) != null)
-                {
-                    if (line != "DataLog" || id != 1)
-                        sw.WriteLine(line);
-                }
-            }
-
-            File.Delete("file.txt");
-            File.Move(tempFile, "file.txt");
-        }
+       
     }
 }

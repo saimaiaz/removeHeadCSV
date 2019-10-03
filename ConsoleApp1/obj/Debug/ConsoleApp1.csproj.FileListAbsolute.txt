@@ -12,3 +12,10 @@ C:\Users\Narongsak\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csprojR
 C:\Users\Narongsak\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
 C:\Users\Narongsak\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\Narongsak\Desktop\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Narongsak\Desktop\removehead\removeHeadCSV\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
